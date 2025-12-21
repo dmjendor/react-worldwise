@@ -1,15 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
-import Page3 from "./pages/Page3";
+
 import PageNotFound from "./pages/PageNotFound";
+import AppLayout from "./pages/AppLayout";
+import Homepage from "./pages/Homepage";
+import Product from "./pages/Product";
+import Pricing from "./pages/Pricing";
+import Login from "./pages/Login";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Page3 />} />
-        <Route path="page1" element={<Page1 />} />
-        <Route path="page2" element={<Page2 />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="product" element={<Product />} />
+        <Route path="pricing" element={<Pricing />} />
+        <Route path="login" element={<Login />} />
+        <Route path="app" element={<AppLayout />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
