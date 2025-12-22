@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
@@ -6,8 +7,9 @@ import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import Login from "./pages/Login";
+import City from "./components/City";
+import Form from "./components/Form";
 import CityList from "./components/CityList";
-import { useEffect, useState } from "react";
 import CountryList from "./components/CountryList";
 const BASE_URL = "http://localhost:9000";
 function App() {
@@ -71,6 +73,10 @@ function App() {
             }
           />
           <Route
+            path="cities/:id"
+            element={<City />}
+          />
+          <Route
             path="countries"
             element={
               <CountryList
@@ -81,7 +87,7 @@ function App() {
           />
           <Route
             path="form"
-            element={<p>Form</p>}
+            element={<Form />}
           />
         </Route>
         <Route
