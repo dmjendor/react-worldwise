@@ -18,7 +18,7 @@ import Flag from "./Flag";
 function Map() {
   const { cities } = useCities();
 
-  const [mapPosition, setMapPosition] = useState([40, 0]);
+  const [mapPosition, setMapPosition] = useState([35, -80]);
   const [mapLat, mapLng] = useURLPosition();
   const {
     isLoading: isLoadingPosition,
@@ -34,7 +34,6 @@ function Map() {
 
   useEffect(
     function () {
-      console.log(geolocationPosition);
       if (geolocationPosition)
         setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
     },
@@ -89,7 +88,6 @@ function DetectClick() {
   const navigate = useNavigate();
   useMapEvents({
     click: (e) => {
-      console.log(e);
       navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
   });

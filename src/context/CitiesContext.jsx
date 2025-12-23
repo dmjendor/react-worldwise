@@ -30,6 +30,7 @@ function CitiesProvider({ children }) {
     setIsLoading,
     currentCity,
     getCity,
+    createCity,
   };
 
   async function getCity(id) {
@@ -46,6 +47,26 @@ function CitiesProvider({ children }) {
       }
     }
     fetchCity();
+  }
+
+  async function createCity(newCity) {
+    async function setCity() {
+      try {
+        setIsLoading(true);
+        const res = await fetch(BASE_URL + "/cities/", {
+          method: "POST",
+          body: JSON.stringify(newCity),
+          headers: { "Content-Type": "application/json" },
+        });
+        const data = await res.json();
+        setCities((cities) => [...cities, data]);
+      } catch (error) {
+        throw new Error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    setCity();
   }
   return (
     // 2) PROVIDE VALUE TO CHILD COMPONENTS
