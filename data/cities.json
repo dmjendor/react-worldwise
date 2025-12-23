@@ -37,18 +37,6 @@
       "id": "98443197"
     },
     {
-      "id": "af6d",
-      "cityName": "Jackson",
-      "country": "United States of America (the)",
-      "emoji": "🇺🇸",
-      "date": "2025-12-23T14:24:58.059Z",
-      "notes": "Test",
-      "position": {
-        "lat": "34.84536693184101",
-        "lng": "-80.74951171875001"
-      }
-    },
-    {
       "id": "9ddb",
       "cityName": "Monroe",
       "country": "United States of America (the)",
@@ -58,42 +46,6 @@
       "position": {
         "lat": "34.9805024453652",
         "lng": "-80.56137084960939"
-      }
-    },
-    {
-      "id": "f8ae",
-      "cityName": "Township of Sandy Ridge",
-      "country": "United States of America (the)",
-      "emoji": "🇺🇸",
-      "date": "2025-12-23T14:36:06.929Z",
-      "notes": "Test",
-      "position": {
-        "lat": "34.93069711727975",
-        "lng": "-80.7572364807129"
-      }
-    },
-    {
-      "id": "86be",
-      "cityName": "Township of Sandy Ridge",
-      "country": "United States of America (the)",
-      "emoji": "🇺🇸",
-      "date": "2025-12-23T14:36:06.929Z",
-      "notes": "Test",
-      "position": {
-        "lat": "34.93069711727975",
-        "lng": "-80.7572364807129"
-      }
-    },
-    {
-      "id": "d4a4",
-      "cityName": "Charlotte",
-      "country": "United States of America (the)",
-      "emoji": "🇺🇸",
-      "date": "2025-12-23T14:39:49.063Z",
-      "notes": "",
-      "position": {
-        "lat": "35.08283179279934",
-        "lng": "-80.87173461914064"
       }
     }
   ]
