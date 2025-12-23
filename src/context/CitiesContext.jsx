@@ -81,6 +81,7 @@ function CitiesProvider({ children }) {
 
   async function getCity(id) {
     async function fetchCity() {
+      if (Number(id) === currentCity.id) return;
       dispatch({ type: "loading" });
       try {
         const res = await fetch(`${BASE_URL}/cities/${id}`);
@@ -117,7 +118,7 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities/${id}`, {
+      await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
 
