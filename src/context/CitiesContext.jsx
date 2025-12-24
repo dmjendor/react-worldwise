@@ -3,7 +3,7 @@ import {
   useContext,
   useEffect,
   useReducer,
-  useState,
+  useCallback,
 } from "react";
 const BASE_URL = "http://localhost:9000";
 // 1) CREATE A CONTEXT
@@ -70,32 +70,27 @@ function CitiesProvider({ children }) {
     }
     fetchCities();
   }, []);
-  const value = {
-    cities,
-    isLoading,
-    currentCity,
-    getCity,
-    createCity,
-    deleteCity,
-  };
 
-  async function getCity(id) {
-    async function fetchCity() {
-      if (Number(id) === currentCity.id) return;
-      dispatch({ type: "loading" });
-      try {
-        const res = await fetch(`${BASE_URL}/cities/${id}`);
-        const data = await res.json();
-        dispatch({ type: "city/loaded", payload: data });
-      } catch (error) {
-        dispatch({
-          type: "rejected",
-          payload: "There was an error loading the city.",
-        });
+  const getCity = useCallback(
+    async function getCity(id) {
+      async function fetchCity() {
+        if (Number(id) === currentCity.id) return;
+        dispatch({ type: "loading" });
+        try {
+          const res = await fetch(`${BASE_URL}/cities/${id}`);
+          const data = await res.json();
+          dispatch({ type: "city/loaded", payload: data });
+        } catch (error) {
+          dispatch({
+            type: "rejected",
+            payload: "There was an error loading the city.",
+          });
+        }
       }
-    }
-    fetchCity();
-  }
+      fetchCity();
+    },
+    [currentCity.id]
+  );
 
   async function createCity(newCity) {
     dispatch({ type: "loading" });
@@ -130,7 +125,14 @@ function CitiesProvider({ children }) {
       });
     }
   }
-
+  const value = {
+    cities,
+    isLoading,
+    currentCity,
+    getCity,
+    createCity,
+    deleteCity,
+  };
   return (
     // 2) PROVIDE VALUE TO CHILD COMPONENTS
     <CitiesContext.Provider value={value}>{children}</CitiesContext.Provider>

@@ -47,6 +47,18 @@
         "lat": "34.9805024453652",
         "lng": "-80.56137084960939"
       }
+    },
+    {
+      "id": "7ebf",
+      "cityName": "Lilesville",
+      "country": "United States of America (the)",
+      "emoji": "🇺🇸",
+      "date": "2025-12-24T16:41:07.974Z",
+      "notes": "Tets",
+      "position": {
+        "lat": "35.092945313732635",
+        "lng": "-79.96810913085939"
+      }
     }
   ]
 }
